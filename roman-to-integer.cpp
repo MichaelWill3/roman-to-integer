@@ -3,7 +3,8 @@
 #include <map>
 
 class Solution{
-    int romanToInt(const std::string &romanNumber) {
+    public:
+    static int romanToInt(const std::string &romanNumber) {
         static const std::map<char,unsigned> romanNumeralToValue = 
         {
             {'I',1},
@@ -34,9 +35,9 @@ class Solution{
 
 int main()
 {
-    assert(romanToInt("III") == 3);
-    assert(romanToInt("LVIII") == 58);
-    assert(romanToInt("MCMXCIV") == 1994);
-    assert(romanToInt("DCXXI") == 621);
+    assert(Solution::romanToInt("III") == 3);
+    assert(Solution::romanToInt("LVIII") == 58);
+    assert(Solution::romanToInt("MCMXCIV") == 1994);
+    assert(Solution::romanToInt("DCXXI") == 621);
     return 0;
 }
