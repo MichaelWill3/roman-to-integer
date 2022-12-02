@@ -3,17 +3,6 @@
 #include <iostream>
 #include <map>
 
-std::map<char,unsigned> romanNumeralToValue = 
-{
-    {'I',1},
-    {'V',5},
-    {'X',10},
-    {'L',50},
-    {'C',100},
-    {'D',500},
-    {'M',1000}
-};
-
 int romanToInt(const std::string &romanNumber) {
     static const std::map<char,unsigned> romanNumeralToValue = 
     {
@@ -25,18 +14,18 @@ int romanToInt(const std::string &romanNumber) {
         {'D',500},
         {'M',1000}
     };
-    
+
     unsigned result = 0;
     unsigned previousValue = 9999;
     for(auto character : romanNumber)
     {
-        unsigned currentValue = romanNumeralToValue[character];
+        unsigned currentValue = romanNumeralToValue.at(character);
         if( previousValue < currentValue )
         {
             result -= 2*previousValue;
         }
         result += currentValue;
-        previousValue=romanNumeralToValue[character];
+        previousValue=romanNumeralToValue.at(character);
     }
     std::cout << result << std::endl;
     return result;
