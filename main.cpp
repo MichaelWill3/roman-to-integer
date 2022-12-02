@@ -10,6 +10,7 @@ std::map<char,unsigned> romanNumeralToValue =
     {'X',10},
     {'L',50},
     {'C',100},
+    {'D',500},
     {'M',1000}
 };
 
@@ -35,5 +36,6 @@ int main()
     assert(romanToInt("III") == 3);
     assert(romanToInt("LVIII") == 58);
     assert(romanToInt("MCMXCIV") == 1994);
+    assert(romanToInt("DCXXI") == 621);
     return 0;
 }
