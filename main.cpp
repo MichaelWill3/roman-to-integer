@@ -9,6 +9,9 @@ int romanToInt(const std::string &s) {
         switch(c)
         {
             case 'I': result+=1; break;
+            case 'V': result+=5; break;
+            case 'L': result+=50; break;
+            case 'M': result+=1000; break;
             default: break;
         }
     }
