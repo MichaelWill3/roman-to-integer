@@ -1,20 +1,32 @@
 #include <string>
 #include <cassert>
+#include <iostream>
+#include <map>
 
-int romanToInt(const std::string &s) {
+std::map<char,unsigned> romanNumeralToValue = 
+{
+    {'I',1},
+    {'V',5},
+    {'X',10},
+    {'L',50},
+    {'C',100},
+    {'M',1000}
+};
+
+int romanToInt(const std::string &romanNumber) {
     unsigned result = 0;
-
-    for(auto c : s)
+    unsigned previousValue = 9999;
+    for(auto character : romanNumber)
     {
-        switch(c)
+        unsigned currentValue = romanNumeralToValue[character];
+        if( previousValue < currentValue )
         {
-            case 'I': result+=1; break;
-            case 'V': result+=5; break;
-            case 'L': result+=50; break;
-            case 'M': result+=1000; break;
-            default: break;
+            result -= 2*previousValue;
         }
+        result += currentValue;
+        previousValue=romanNumeralToValue[character];
     }
+    std::cout << result << std::endl;
     return result;
 }
 
